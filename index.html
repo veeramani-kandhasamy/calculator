@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+           font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        h1{
+            text-transform: uppercase;
+            color: white;
+            text-shadow: gray;
+            margin-left: 1%;
+            margin-right: 1%;
+            text-align: center;
+            font-size: 20px;
+            padding-top: 20px;
+        }
+    .calculator-container{
+        background-color: teal;
+        display: inline-block;
+        width: 60vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+        border-radius: 10px;
+    }
+    input{
+        width:70%;
+        height: 8vw;
+        margin-top: 5%;
+        border: 3px solid gray;
+        border-radius: 10px;
+        padding-left: 10%;
+        font-weight: 600;
+    }
+    ::placeholder{
+        padding-left: 2%;
+    }
+    button{
+        background-color: darkslategrey;
+        color: white;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        width: 20%;
+        height: 30%;
+        border: 3px solid gray;
+        padding: 8%;
+    }
+    .buttons{
+        
+        text-align: center;
+        margin-bottom: 15%;
+        margin-top: 7%;
+        
+        
+    }
+    @media  screen and (min-width:580px) {
+        .calculator-container{
+            width: 348px;
+            margin-top: 5px;
+        }
+        button{
+            width: 50px;
+            height: 50px;
+            margin: 3px;
+            text-align: center;
+        }
+        input{
+            height: 44px;
+        }
+        .buttons{
+        
+        }
+            
+    }
+
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <h1>Model Calculator</h1><hr>
+        <input type="text" id="input" placeholder="0"><br><hr>
+    <div class="buttons">
+    <button onclick="getthevalue('1')" >1</button>
+    <button onclick="getthevalue('2')" >2</button>
+    <button onclick="getthevalue('3')" >3</button>
+    <button onclick="getthevalue('4')" >4</button><br>
+    <button onclick="getthevalue('5')" >5</button>
+    <button onclick="getthevalue('6')" >6</button>
+    <button onclick="getthevalue('7')" >7</button>
+    <button onclick="getthevalue('8')" >8</button><br>
+    <button onclick="getthevalue('9')" >9</button>
+    <button onclick="getthevalue('0')" >0</button>
+    <button onclick="getthevalue('+')" >+</button>
+    <button onclick="getthevalue('-')" >-</button><br>
+    <button onclick="getthevalue('*')" >x</button>
+    <button onclick="getthevalue('/')" >/</button>
+    <button onclick="erase()">C</button>
+    <button id="myBtn" onclick="calculate()">=</button>
+    </div>
+    
+    
+   </div>
+   <script>
+
+    function getthevalue(x){
+        
+       document.getElementById('input').value+=x;
+    }
+    function erase(){
+        document.getElementById("input").value = '';
+    }
+    function calculate(){
+        
+        let store=document.getElementById('input').value
+        let result=eval(store);
+        document.getElementById('input').value=result
+        
+    }
+
+    var input = document.getElementById("input");
+input.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("myBtn").click();
+  }
+});
+   </script>
+    
+</body>
+</html>
